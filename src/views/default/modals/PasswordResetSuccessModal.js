@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Modal, Button, Glyphicon } from "react-bootstrap";
+// import { Modal, Button, Glyphicon } from "react-bootstrap";
 import ButtonLoader from "../ButtonLoader";
 import Input from "../Input";
 import { connect } from "react-redux";
@@ -46,60 +46,61 @@ class PasswordResetSuccessModal extends React.Component {
     let loading = this.props.auth.getIn(["updatePasswordModal", this.getEndpoint(), "loading"]),
         endpoint = this.getEndpoint();
 
-    return (
-      <Modal
-        show={this.props.show}
-        className="password-reset-success-modal"
-        onHide={this.close.bind(this)}>
-        <Modal.Header closeButton>
-          <Modal.Title>Reset Your Password</Modal.Title>
-        </Modal.Header>
-
-        <form>
-          <Modal.Body>
-            <Input
-              type="password"
-              label="Password"
-              placeholder="Password"
-              disabled={loading}
-              className="password-reset-success-modal-password"
-              value={this.props.auth.getIn(["updatePasswordModal", endpoint, "form", "password"])}
-              errors={this.props.auth.getIn(["updatePasswordModal", endpoint, "errors", "password"])}
-              onChange={this.handleInput.bind(this, "password")}
-              {...this.props.inputProps.password} />
-
-            <Input
-              type="password"
-              label="Password Confirmation"
-              placeholder="Password Confirmation"
-              disabled={loading}
-              className="password-reset-success-modal-password-confirmation"
-              value={this.props.auth.getIn(["updatePasswordModal", endpoint, "form", "password_confirmation"])}
-              errors={this.props.auth.getIn(["updatePasswordModal", endpoint, "errors", "password_confirmation"])}
-              onChange={this.handleInput.bind(this, "password_confirmation")}
-              {...this.props.inputProps.passwordConfirmation} />
-          </Modal.Body>
-
-          <Modal.Footer>
-            <Button
-              className="password-reset-success-modal-close"
-              onClick={this.close.bind(this)}
-              {...this.props.inputProps.cancel}>
-              Cancel
-            </Button>
-
-            <ButtonLoader
-              {...this.props}
-              loading={loading}
-              type="submit"
-              className="password-reset-success-modal-submit"
-              icon={<Glyphicon glyph="lock" />}
-              onClick={this.handleSubmit.bind(this)}
-              {...this.props.inputProps.submit} />
-          </Modal.Footer>
-        </form>
-      </Modal>
-    );
+    return false;
+    // (
+      // <Modal
+      //   show={this.props.show}
+      //   className="password-reset-success-modal"
+      //   onHide={this.close.bind(this)}>
+      //   <Modal.Header closeButton>
+      //     <Modal.Title>Reset Your Password</Modal.Title>
+      //   </Modal.Header>
+      //
+      //   <form>
+      //     <Modal.Body>
+      //       <Input
+      //         type="password"
+      //         label="Password"
+      //         placeholder="Password"
+      //         disabled={loading}
+      //         className="password-reset-success-modal-password"
+      //         value={this.props.auth.getIn(["updatePasswordModal", endpoint, "form", "password"])}
+      //         errors={this.props.auth.getIn(["updatePasswordModal", endpoint, "errors", "password"])}
+      //         onChange={this.handleInput.bind(this, "password")}
+      //         {...this.props.inputProps.password} />
+      //
+      //       <Input
+      //         type="password"
+      //         label="Password Confirmation"
+      //         placeholder="Password Confirmation"
+      //         disabled={loading}
+      //         className="password-reset-success-modal-password-confirmation"
+      //         value={this.props.auth.getIn(["updatePasswordModal", endpoint, "form", "password_confirmation"])}
+      //         errors={this.props.auth.getIn(["updatePasswordModal", endpoint, "errors", "password_confirmation"])}
+      //         onChange={this.handleInput.bind(this, "password_confirmation")}
+      //         {...this.props.inputProps.passwordConfirmation} />
+      //     </Modal.Body>
+      //
+      //     <Modal.Footer>
+      //       <Button
+      //         className="password-reset-success-modal-close"
+      //         onClick={this.close.bind(this)}
+      //         {...this.props.inputProps.cancel}>
+      //         Cancel
+      //       </Button>
+      //
+      //       <ButtonLoader
+      //         {...this.props}
+      //         loading={loading}
+      //         type="submit"
+      //         className="password-reset-success-modal-submit"
+      //         icon={<Glyphicon glyph="lock" />}
+      //         onClick={this.handleSubmit.bind(this)}
+      //         {...this.props.inputProps.submit} />
+      //     </Modal.Footer>
+      //   </form>
+      // </Modal>
+    // );
   }
 }
 
